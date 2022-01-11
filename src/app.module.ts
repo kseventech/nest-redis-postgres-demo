@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import * as redisStore from 'cache-manager-ioredis'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import typeormConfig from 'ormconfig';
+import { CatModule } from './entities/cat/cat.module';
+import { UserModule } from './entities/user/user.module';
 
 
 @Module({
@@ -13,7 +15,9 @@ import typeormConfig from 'ormconfig';
       store: redisStore,
       host: 'localhost',
       port: 6379,
-    })
+    }),
+    CatModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
