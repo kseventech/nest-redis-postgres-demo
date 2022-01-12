@@ -6,6 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import typeormConfig from 'ormconfig';
 import { CatModule } from './entities/cat/cat.module';
 import { UserModule } from './entities/user/user.module';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 
 @Module({
@@ -13,7 +16,7 @@ import { UserModule } from './entities/user/user.module';
     TypeOrmModule.forRoot(typeormConfig),
     // CacheModule.register({
     //   store: redisStore,
-    //   host: 'clustercfg.redis-cluster.iibcmm.memorydb.us-east-1.amazonaws.com',
+    //   host: process.env.REDIS_HOST,
     //   port: 6379,
     // }),
     CatModule,
