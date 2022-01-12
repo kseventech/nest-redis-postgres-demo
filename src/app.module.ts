@@ -11,11 +11,11 @@ import { UserModule } from './entities/user/user.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeormConfig),
-    CacheModule.register({
-      store: redisStore,
-      host: 'localhost',
-      port: 6379,
-    }),
+    // CacheModule.register({
+    //   store: redisStore,
+    //   host: 'clustercfg.redis-cluster.iibcmm.memorydb.us-east-1.amazonaws.com',
+    //   port: 6379,
+    // }),
     CatModule,
     UserModule
   ],
