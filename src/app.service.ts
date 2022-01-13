@@ -1,9 +1,5 @@
 import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
-import { createClient } from 'redis';
-import fs from 'fs'
-import { join } from 'path';
-import { MemoryDBClient, BatchUpdateClusterCommand, MemoryDB } from "@aws-sdk/client-memorydb";
 
 
 @Injectable()
