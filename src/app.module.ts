@@ -14,11 +14,11 @@ dotenv.config()
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeormConfig),
-    // CacheModule.register({
-    //   store: redisStore,
-    //   host: process.env.REDIS_HOST,
-    //   port: 6379,
-    // }),
+    CacheModule.register({
+      store: redisStore,
+      host: process.env.REDIS_HOST,
+      port: 6379,
+    }),
     CatModule,
     UserModule
   ],

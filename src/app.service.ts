@@ -10,58 +10,11 @@ import { MemoryDBClient, BatchUpdateClusterCommand, MemoryDB } from "@aws-sdk/cl
 export class AppService {
 
   constructor(
-   //  @Inject(CACHE_MANAGER) private cacheManager: Cache
+    @Inject(CACHE_MANAGER) private cacheManager: Cache
   ) {}
   async getHello() {
-    console.log('here')
-   // const a = new MemoryDB({
-   //    region: "us-east-1",
-   //    credentials: {
-   //       accessKeyId: "process.env.AWS_ACCESS_KEY_ID",
-   //       secretAccessKey: "process.env.AWS_SECRET_ACCESS_KEY",
-   //     },
-   // })
-   // const client = new MemoryDBClient({ 
-   //    region: "us-east-1",
-   //    credentials: {
-   //       accessKeyId: "process.env.AWS_ACCESS_KEY_ID",
-   //       secretAccessKey: "process.env.AWS_SECRET_ACCESS_KEY",
-   //     },
-   //  });
-   // const params = {
-   //    /** input parameters */
-   //  };
-   //  const command = new BatchUpdateClusterCommand({
-   //    ServiceUpdate: {ServiceUpdateNameToApply: ''},
-   //    ClusterNames: ['']
-   //  });
-   //  const data = await client.send(command);
-
-   //    const Certificate = join(__dirname ,'..', '..' ,'/ca.crt')
-   //    const Certificate_body = join(__dirname, '..', '..', '/server.crt')
-   //    const Certificate_key = join(__dirname, '..', '..', '/server.key')
-   //    const client = await createClient({
-   //       // username: 'user1',
-   //       // password: 'testtesttesttest',
-   //       name: 'redis-cluster',
-   //       url: 'clustercfg.redis-cluster.iibcmm.memorydb.us-east-1.amazonaws.com:6379',
-   //       socket: {
-   //          tls: true,
-   //          key:  fs.readFileSync(Certificate_key, {encoding: 'ascii'}),
-   //          cert: fs.readFileSync(Certificate_body, {encoding: 'ascii'}),
-   //          ca: fs.readFileSync(Certificate,{encoding :'ascii'})
-   //       }
-   //    });
-
-
-   //  client.on('error', (err) => console.log('Redis Client Error', err));
-
-   //  await client.connect();
-  
-   //  await client.set('key', 'value');
-   //  const value = await client.get('key');
-
-   //  return value
+    const key = await this.cacheManager.set("key", 100 , {ttl: 0})
+    return key
     
   }
 }
