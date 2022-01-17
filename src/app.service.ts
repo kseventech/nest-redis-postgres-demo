@@ -9,7 +9,7 @@ export class AppService {
     @Inject(CACHE_MANAGER) private cacheManager: Cache
   ) {}
   async getHello() {
-    const key = await this.cacheManager.set("key", 100 , {ttl: 0})
+    const key = await this.cacheManager.set("my-key", 100 , {ttl: 0})
     return key
     
   }

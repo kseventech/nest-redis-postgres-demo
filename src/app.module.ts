@@ -22,7 +22,8 @@ dotenv.config()
       port: 6379,
     }),
     CatModule,
-    UserModule
+    UserModule,
+    // SearchModule
   ],
   controllers: [AppController],
   providers: [AppService],
