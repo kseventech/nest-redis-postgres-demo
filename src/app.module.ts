@@ -7,7 +7,6 @@ import typeormConfig from 'ormconfig';
 import { CatModule } from './entities/cat/cat.module';
 import { UserModule } from './entities/user/user.module';
 import dotenv from 'dotenv'
-import { SearchModule } from './services/elastic-search.module';
 
 dotenv.config()
 
@@ -15,7 +14,6 @@ dotenv.config()
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeormConfig),
-    SearchModule,
     CacheModule.register({
       store: redisStore,
       host: process.env.REDIS_HOST,
@@ -23,7 +21,6 @@ dotenv.config()
     }),
     CatModule,
     UserModule,
-    // SearchModule
   ],
   controllers: [AppController],
   providers: [AppService],
