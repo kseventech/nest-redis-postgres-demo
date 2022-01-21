@@ -21,14 +21,19 @@ export class AppService {
 
   async getHello() {
     const arr = []
-    for (let i = 0; i < 1000; i++) {
-      arr.push({name: String(Math.random())})
+    for (let i = 0; i < 1000000; i++) {
+      arr.push({
+        id: i,
+        name: String(Math.random())
+      })
     }
     console.log('start inserting')
     await this.employeeRepo.save(arr)
     console.log('end inserting')
 
-    // const key = await this.cacheManager.set("my-key", 100 , {ttl: 0})
+    console.log('statrt redis')
+    const key = await this.cacheManager.set("milion-arry", arr , {ttl: 0})
+    console.log('end redis')
     // return key
 
   }
