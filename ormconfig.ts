@@ -8,7 +8,7 @@ const typeormConfig: TypeOrmModuleOptions = {
   username: 'user_1',
   password: 'testtest1',
   entities: ['dist/src/**/*.entity.js'],
-  synchronize: false,
+  synchronize: true,
   migrations: ['dist/src/db/migrations/*.js'],
   cli: {
     migrationsDir: 'src/db/migrations',

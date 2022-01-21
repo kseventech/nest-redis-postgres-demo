@@ -20,23 +20,16 @@ export class AppService {
   ) {}
 
   async getHello() {
+    const arr = []
+    for (let i = 0; i < 1000; i++) {
+      arr.push({name: String(Math.random())})
+    }
+    console.log('start inserting')
+    await this.employeeRepo.save(arr)
+    console.log('end inserting')
+
     // const key = await this.cacheManager.set("my-key", 100 , {ttl: 0})
     // return key
-
-    const createEmployee = this.employeeRepo.create({name: 'Manager'})
-    await this.employeeRepo.save(createEmployee)
-
-    const employeeContactInfo = this.contactInfoRepo.create({email: 'manager@email.com'})
-    employeeContactInfo.employee = createEmployee
-    await this.contactInfoRepo.save(employeeContactInfo)
-
-    // const employeeManager = this.em
-
-    const employeeTask1 = await this.taskRepo.create({ name: 'Hire people'})
-    const employeeTask2 = await this.taskRepo.create({ name: 'Send message to CEO'})
-
-    
-
 
   }
 }
