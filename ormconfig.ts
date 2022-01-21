@@ -13,5 +13,17 @@ const typeormConfig: TypeOrmModuleOptions = {
   cli: {
     migrationsDir: 'src/db/migrations',
   },
+  // type: 'postgres',
+  // host: 'localhost',
+  // database: 'typeorm-demo-db',
+  // port: 5432,
+  // username: 'user_1',
+  // password: 'test1',
+  // entities: ['dist/src/**/*.entity.js'],
+  // synchronize: false,
+  // migrations: ['dist/src/db/migrations/*.js'],
+  // cli: {
+  //   migrationsDir: 'src/db/migrations',
+  // },
 };
 export default typeormConfig;
