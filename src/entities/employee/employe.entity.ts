@@ -29,11 +29,11 @@ export class Employee {
     @ManyToOne(() => Employee, employee=> employee.directReports, {onDelete: 'SET NULL'})
     manager: Employee
 
-    // @CreateDateColumn({ type: 'timestamp' })
-    // createdAt: Date;
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
   
-    // @UpdateDateColumn({ type: 'timestamp' })
-    // updatedAt: Date;
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     // @Column({
     //     type:'text',
