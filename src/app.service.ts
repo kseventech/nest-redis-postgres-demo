@@ -28,9 +28,14 @@ export class AppService {
     await this.employeeRepo.save(arr)
     console.log('end inserting')
 
+    console.log('start find')
     const found = await this.employeeRepo.find()
+    console.log('end find')
 
+    console.log('insert into redis')
     const key = await this.cacheManager.set("test-arr", found , {ttl: 0})
+    console.log('done insert into redis')
+
     // return key
 
   }
