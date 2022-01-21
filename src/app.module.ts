@@ -4,9 +4,11 @@ import { AppService } from './app.service';
 import * as redisStore from 'cache-manager-ioredis'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import typeormConfig from 'ormconfig';
-import { CatModule } from './entities/cat/cat.module';
-import { UserModule } from './entities/user/user.module';
 import dotenv from 'dotenv'
+import { Employee } from './entities/employee/employe.entity';
+import { Task } from './entities/task/task.entity';
+import { ContactInfo } from './entities/contact/contact.entity';
+import { Meeting } from './entities/meeting/meeting.entity';
 
 dotenv.config()
 
@@ -19,8 +21,7 @@ dotenv.config()
       host: process.env.REDIS_HOST,
       port: 6379,
     }),
-    CatModule,
-    UserModule,
+    TypeOrmModule.forFeature([Employee,Task,ContactInfo,Meeting])
   ],
   controllers: [AppController],
   providers: [AppService],
