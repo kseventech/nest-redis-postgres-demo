@@ -21,7 +21,7 @@ export class AppService {
 
   async getHello() {
     const arr = []
-    for (let i = 0; i < 1000000; i++) {
+    for (let i = 0; i < 1000; i++) {
       arr.push(this.employeeRepo.create({name: String(Math.random())}))
     }
     console.log('start inserting')
@@ -36,7 +36,7 @@ export class AppService {
     const key = await this.cacheManager.set("test-arr", found , {ttl: 0})
     console.log('done insert into redis')
 
-    // return key
+    return key
 
   }
 }
