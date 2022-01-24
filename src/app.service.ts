@@ -20,16 +20,27 @@ export class AppService {
   ) {}
 
   async getHello() {
+    // const employee = this.employeeRepo.create({name: 'Manager'})
+    // await this.employeeRepo.save(employee)
 
-    console.time('rds')
-    const found = await this.employeeRepo.find()
-    console.timeEnd('rds')
+    // const employeeContactInfo = this.contactInfoRepo.create({email: 'manager@email.com'})
+    // employeeContactInfo.employee = employee
+    // await this.contactInfoRepo.save(employeeContactInfo)
 
-    console.time('redis')
-    const key = await this.cacheManager.get("test-arr")
-    console.timeEnd('redis')
+    // const employeeTask1 = this.taskRepo.create({ name: 'Hire people'})
+    // const employeeTask2 = this.taskRepo.create({ name: 'Send message to CEO'})
 
-    return key
+    // employeeTask1.employee = employee
+    // employeeTask2.employee = employee
+
+    // await this.taskRepo.save(employeeTask1)
+    // await this.taskRepo.save(employeeTask2)
+
+
+    // return await this.employeeRepo.find()
+    // return await this.employeeRepo.findOne("613cbc81-ce34-4b73-81dc-908debc22c92",{relations:["tasks", "contactInfo"]})
+
+    // return await this.contactInfoRepo.findOne({email: 'manager@email.com'})
 
   }
 }

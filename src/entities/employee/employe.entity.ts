@@ -17,11 +17,11 @@ export class Employee {
     @JoinTable()
     meetings: Meeting[];
     
-    @OneToOne(() => ContactInfo, ( contactInfo ) => contactInfo.employeeId)
-    contactInfo
+    @OneToOne(() => ContactInfo, ( contactInfo ) => contactInfo.employee)
+    contactInfo: ContactInfo
     
-    @OneToMany(() => Task, ( task ) => task.employee)
-    task : Task[]
+    @OneToMany(() => Task, ( tasks ) => tasks.employee)
+    tasks : Task[]
     
     @OneToMany(() => Employee, employee => employee.manager)
     directReports: Employee[]

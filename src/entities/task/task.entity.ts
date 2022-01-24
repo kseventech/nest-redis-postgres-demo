@@ -11,7 +11,7 @@ export class Task {
     @Column()
     name : string;
 
-    @ManyToOne(() => Employee, employee => employee.task, {onDelete: 'SET NULL'})
+    @ManyToOne(() => Employee, employee => employee.tasks, {onDelete: 'SET NULL'})
     employee: Employee
 
     @CreateDateColumn({ type: 'timestamp' })
