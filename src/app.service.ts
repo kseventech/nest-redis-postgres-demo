@@ -20,21 +20,14 @@ export class AppService {
   ) {}
 
   async getHello() {
-    const arr = []
-    for (let i = 0; i < 1000; i++) {
-      arr.push(this.employeeRepo.create({name: String(Math.random())}))
-    }
-    console.log('start inserting')
-    await this.employeeRepo.save(arr)
-    console.log('end inserting')
 
-    console.log('start find')
+    console.time('rds')
     const found = await this.employeeRepo.find()
-    console.log('end find')
+    console.timeEnd('rds')
 
-    console.log('insert into redis')
-    const key = await this.cacheManager.set("test-arr", found , {ttl: 0})
-    console.log('done insert into redis')
+    console.time('redis')
+    const key = await this.cacheManager.get("test-arr")
+    console.timeEnd('redis')
 
     return key
 
