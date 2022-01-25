@@ -12,7 +12,7 @@ dotenv.config();
 export class InternalServerExcetpion extends BaseExceptionFilter {
 
     public constructor(
-        public httpAdapter : HttpServer<any, any>,
+        public httpAdapter : HttpServer,
         @InjectSentry() private readonly client: SentryService
     ) {
         super(httpAdapter);
@@ -23,7 +23,7 @@ export class InternalServerExcetpion extends BaseExceptionFilter {
         const local = request.headers.host.includes('localhost');
         const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
     
-        if (status === HttpStatus.INTERNAL_SERVER_ERROR && !local ) {
+        if (status === HttpStatus.INTERNAL_SERVER_ERROR) {
             this.client.instance().captureException(exception);
         }
         super.catch(exception, host);

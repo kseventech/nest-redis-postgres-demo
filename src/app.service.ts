@@ -23,7 +23,7 @@ export class AppService {
     
     
     throw new InternalServerErrorException();
-
+    
     // const employee = this.employeeRepo.create({name: 'Manager'})
     // await this.employeeRepo.save(employee)
 
