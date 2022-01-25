@@ -1,12 +1,11 @@
-import { BadGatewayException, CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cache } from 'cache-manager';
-import { getManager, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ContactInfo } from './entities/contact/contact.entity';
 import { Employee } from './entities/employee/employe.entity';
 import { Meeting } from './entities/meeting/meeting.entity';
 import { Task } from './entities/task/task.entity';
-import { InjectSentry, SentryModule, SentryService } from '@ntegral/nestjs-sentry';
 
 
 @Injectable()
@@ -18,17 +17,12 @@ export class AppService {
     @InjectRepository(Employee) private employeeRepo: Repository<Employee>,
     @InjectRepository(Meeting) private MeetingRepo: Repository<Meeting>,
     @InjectRepository(ContactInfo) private contactInfoRepo: Repository<ContactInfo>,
-    @InjectSentry() private readonly client: SentryService
   ) {}
 
   async getHello() {
-    try {
-      throw new BadGatewayException()
-    } catch (error) {
-      // this.client.instance().
-      this.client.instance().captureException(error)
-    }
-
+    
+    
+    throw new InternalServerErrorException();
 
     // const employee = this.employeeRepo.create({name: 'Manager'})
     // await this.employeeRepo.save(employee)
