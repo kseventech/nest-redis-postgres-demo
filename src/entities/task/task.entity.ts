@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Employee } from "../employee/employe.entity";
 
 
 @Entity()
-export class Task {
+export class Task extends BaseEntity{
 
     @PrimaryGeneratedColumn('uuid')
     id: number;

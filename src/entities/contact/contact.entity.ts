@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Employee } from "../employee/employe.entity";
 
 
 @Entity()
-export class ContactInfo {
+export class ContactInfo extends BaseEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id: number;

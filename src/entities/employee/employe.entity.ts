@@ -1,11 +1,11 @@
-import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ContactInfo } from "../contact/contact.entity";
 import { Meeting } from "../meeting/meeting.entity";
 import { Task } from "../task/task.entity";
 
 
 @Entity()
-export class Employee {
+export class Employee extends BaseEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id: number;

@@ -1,9 +1,9 @@
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Employee } from "../employee/employe.entity";
 
 
 @Entity()
-export class Meeting {
+export class Meeting extends BaseEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id: number;
