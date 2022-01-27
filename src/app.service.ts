@@ -47,4 +47,8 @@ export class AppService {
     // return await this.contactInfoRepo.findOne({email: 'manager@email.com'})
 
   }
+
+  async createStrapi(body: any) {
+    console.log(body)
+  }
 }
